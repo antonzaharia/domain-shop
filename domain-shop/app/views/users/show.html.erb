@@ -1,0 +1,10 @@
+<br />
+<h1><%= @user.name %></h1>
+
+<br />
+
+<ul>
+  <% @user.shops.each do |shop| %>
+    <li><%= link_to shop.name, shop_path(shop)%> - <%= shop.domain %></li>
+  <% end %>
+</ul>
