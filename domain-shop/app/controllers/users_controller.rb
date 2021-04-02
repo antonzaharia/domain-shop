@@ -2,7 +2,7 @@ class UsersController < ApplicationController
     include CurrentUserConcern
     def new
         if @current_user
-            redirect_to "/statics"
+            redirect_to "/search"
         end
         @user = User.new
     end

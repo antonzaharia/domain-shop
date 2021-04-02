@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   resources :users, :only => [:show]
   resources :shops, :only => [:show, :create]
   delete '/logout', to: "users#destroy"
+
+  get '/search', to: "statics#search"
 end
