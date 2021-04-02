@@ -6,7 +6,7 @@ class ShopsController < ApplicationController
     end
     
     def show
-        @new_shop = Shop.find(params[:id])
+        @shop = Shop.find(params[:id])
     end
 
     def destroy
