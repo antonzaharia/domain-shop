@@ -1,0 +1,12 @@
+<h1>Search for domain</h1>
+
+<%= form_tag('/search', method: :post) do %>
+  <%= text_field_tag 'domain'%>
+  <%= submit_tag 'Check'%>
+<% end %>
+
+<% if @status %>
+  <%= @status %>
+<% end %>
+
+<%= javascript_pack_tag 'check_domain' %>
