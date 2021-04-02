@@ -3,7 +3,7 @@
 
 <br />
 
-<%= form_for :new_shop do |f| %>
+<%= form_for :new_shop, as: :shop, url: "/shops/create", method: :post do |f| %>
    <%= f.text_field :name %>
    <%= f.submit "Create Shop" %>
 <% end %>
@@ -12,6 +12,6 @@
 
 <ul>
   <% @user.shops.each do |shop| %>
-    <li><%= link_to shop.name, shop_path(shop)%> - <%= shop.domain %></li>
+    <li><%= link_to shop.name, shop_path(shop)%> - <%= shop.domain %> - <%= link_to "delete", shop_path(shop), method: :delete %></li>
   <% end %>
 </ul>
