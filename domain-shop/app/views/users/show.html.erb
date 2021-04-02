@@ -3,6 +3,13 @@
 
 <br />
 
+<%= form_for :new_shop do |f| %>
+   <%= f.text_field :name %>
+   <%= f.submit "Create Shop" %>
+<% end %>
+
+<br />
+
 <ul>
   <% @user.shops.each do |shop| %>
     <li><%= link_to shop.name, shop_path(shop)%> - <%= shop.domain %></li>
