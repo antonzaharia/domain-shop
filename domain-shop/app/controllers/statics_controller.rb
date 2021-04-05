@@ -1,10 +1,12 @@
 require 'uri'
 require 'net/http'
+require 'json'
 
 class StaticsController < ApplicationController
     def new_search
-        if params[:domain]
+        if params[:domain] && session[:response]
             @domain = params[:domain]
+            @response = session[:response]
         end
     end
 
@@ -18,6 +20,7 @@ class StaticsController < ApplicationController
         request["authorization"] = 'Apikey eGDwsqy7LQCMTS8Q0hsXHWKA'
     
         response = http.request(request)
+        session[:response] = JSON.parse(response.body)
 
         redirect_to "/search?domain=#{params[:domain]}"
     end

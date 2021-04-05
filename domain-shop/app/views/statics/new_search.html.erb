@@ -6,11 +6,15 @@
 <% end %>
 
 <% if @domain %>
-  <%= @domain %>
+  <h2><%= @domain %></h2>
 <% end %>
 
-<% if @test %>
-  <%= @test %>
+<% if @response %>
+  <p>Status: <%= @response["products"][0]["status"] %></p>
+  <% if @response["products"][0]["status"] == "available" %>
+    <p>Price before taxes: <%= @response["products"][0]["prices"][0]["price_before_taxes"] %> <%= @response["currency"] %></p>
+    <p>Price after taxes: <%= @response["products"][0]["prices"][0]["price_after_taxes"] %> <%= @response["currency"] %></p>
+  <% end %>
 <% end %>
 
 <%= javascript_pack_tag 'check_domain' %>
