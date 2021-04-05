@@ -5,8 +5,12 @@
   <%= submit_tag 'Check'%>
 <% end %>
 
-<% if @status %>
-  <%= @status %>
+<% if @domain %>
+  <%= @domain %>
+<% end %>
+
+<% if @test %>
+  <%= @test %>
 <% end %>
 
 <%= javascript_pack_tag 'check_domain' %>
